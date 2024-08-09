@@ -9,6 +9,13 @@ var corsOptions = {
   }
 app.use(express.json()); // Middleware to parse JSON request bodies
 
+app.get('/flights',( req, res)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");  
+    res.json([
+        "","EWR","PHX","SFO","SJC","OAK","MAA","DHO","JFK"
+    ])
+});
 
 app.post('/calculate', (req, res) => {
  console.log(req.body)
