@@ -18,7 +18,6 @@ app.get('/flights',( req, res)=>{
 });
 
 app.post('/calculate', (req, res) => {
- console.log(req.body)
   const flights = req.body;
   let from_destinations = new Set();
   let to_destinations = new Set();
@@ -34,8 +33,7 @@ app.post('/calculate', (req, res) => {
   let final_destination = [...all_destinations].filter(x => !from_destinations.includes(x))
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");  
-  console.log(origin)
-  console.log(final_destination)
+
   if (origin.length!=1 || final_destination.length!=1)
   {
     res.status(500).json("Cannot find origin and destination based on the given information")
